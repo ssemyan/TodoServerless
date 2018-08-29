@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Serverless Todo App</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+
+	<nav class="navbar navbar-light bg-light">
+		<a class="navbar-brand" href="#">Serverless Todo App</a>
+		<span class="navbar-text">
+			<a href="http://github.com" target="_blank">Fork me on GitHub</a>
+		</span>
+	</nav>
+
+	<div class="container mt-5">
+		<h1 class="display-4">Serverless Todo App</h1>
+		<p class="lead text-muted">This simple ToDo application illustrates how to use serverless technology in Azure. This application uses Azure Active Directory for authentication. You can logout <a href="/.auth/logout">here</a>.</p>
+
+		<div class="row pt-5">
+			<div class="col">
+				<h3>Items ToDo for <span data-bind="text: currentUser">Unknown</span></h3>
+			</div>
+			<div class="col text-right">
+				<button type="button" class="btn text-right" onclick="AZ.Documents.AddEdit()">+ Add New</button>
+			</div>
+		</div>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th style="width: 40%">Item</th>
+					<th style="width: 40%">Date Added</th>
+					<th style="width: 20%">Actions</th>
+				</tr>
+			</thead>
+			<tbody style="display: none;" data-bind="visible: true">
+				<!-- ko foreach: documents -->
+				<tr>
+					<td data-bind="text: ItemName"></td>
+					<td data-bind="text: (new Date(Date.parse(ItemCreateDate))).toLocaleString()"></td>
+					<td>
+						<button type="button" class="btn" data-bind="click: AZ.Documents.Remove">X Mark as Done</button>
+					</td>
+				</tr>
+				<!-- /ko -->
+				<tr style="display: none;" data-bind="visible: (documents().length == 0)">
+					<td rowspan="2">No items to display</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.0.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/vars.js"></script>
+	<script src="js/mainscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+					"routetobase": {
+						"matchCondition": {
+							"route": "/",
+							"methods": [
+								"GET"
+							]
+						},
+						"backendUri": "https://<YOUR_STORAGE_URL>/<YOUR_CONTAINER_NAME>/index.html"
+					},
+					"jsproxy": {
+						"matchCondition": {
+							"route": "/js/{*restOfPath}",
+							"methods": [
+								"GET"
+							]
+						},
+						"backendUri": "https://<YOUR_STORAGE_URL>/<YOUR_CONTAINER_NAME>/js/{restOfPath}"
+					}
+    }
+}

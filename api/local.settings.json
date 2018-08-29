@@ -1,0 +1,10 @@
+{
+	"Host": {
+		"LocalHttpPort": 7071,
+		"CORS": "*"
+	},
+	"IsEncrypted": false,
+	"Values": {
+		"AzureWebJobsDocumentDBConnectionString": "<YOUR_DEVELOPMENT_COSMOSDB_ENDPOINT>"
+	}
+}
