@@ -1,6 +1,8 @@
 ﻿
 # Azure Functions Todo List Sample
 
+Note: this application is referenced in the blog post [A Serverless ToDo List](https://blogs.msdn.microsoft.com/cloud_solution_architect/2018/09/03/serverless-todo-list/)
+
 This sample demonstrates a single page application (SPA) hosted on Azure Storage, with an api backend built using Azure Functions. The site uses proxies to route the site html and js content of the SPA back to the storage account, CosmosDB to store data, and Azure Active Directory for authentication.
 
 This code can be run locally (using the Azure Functions CLI and CosmosDB emulator) as well as in Azure. Instructions for both are below.
@@ -13,9 +15,9 @@ Users can add new items to their list, or mark existing items as complete (which
 
 ## Setup steps on Localhost
 
-1. Install the Azure CLI tools from here: (https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+1. Install the Azure CLI tools from here: https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local
 
-1. If you want to use the emulator for local development, install the CosmosDB emulator from here: (https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+1. If you want to use the emulator for local development, install the CosmosDB emulator from here: https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator
 
 1. In the emulator or in Azure, create a new document collection called 'TodoItems' in a new database called 'ServerlessTodo'
 
