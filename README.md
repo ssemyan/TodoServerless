@@ -5,6 +5,8 @@ Note: this application is referenced in the blog post [A Serverless ToDo List](h
 
 This sample demonstrates a single page application (SPA) hosted on Azure Storage, with an api backend built using Azure Functions. The site uses proxies to route the site html and js content of the SPA back to the storage account, CosmosDB to store data, and Azure Active Directory for authentication.
 
+![Screenshot](https://github.com/ssemyan/TodoServerless/raw/master/Screenshot.png)
+
 This code can be run locally (using the Azure Functions CLI and CosmosDB emulator) as well as in Azure. Instructions for both are below.
 
 The application is a simple Todo list where users can add items "todo". The items are stored in a single CosmosDB document collection but each user can only access their items (user identification is via the claims from the authentication mechanism). 
