@@ -21,7 +21,7 @@ Users can add new items to their list, or mark existing items as complete (which
 
 1. If you want to use the emulator for local development, install the CosmosDB emulator from here: https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator
 
-1. In the emulator or in Azure, create a new document collection called 'TodoItems' in a new database called 'ServerlessTodo'
+1. In the emulator or in Azure, create a new document collection called 'TodoItems' in a new database called 'ServerlessTodo' and set the Partition Key to '/ItemOwner'
 
 1. Update the connection string in **_local.settings.json_** to the one for the emulator or Azure
 
@@ -33,7 +33,7 @@ Users can add new items to their list, or mark existing items as complete (which
 
 1. Create a CosmosDB account
 
-1. Create a new document collection called 'TodoItems' in a new database called 'ServerlessTodo'
+1. Create a new document collection called 'TodoItems' in a new database called 'ServerlessTodo' and set the Partition Key to '/ItemOwner'
 
 1. Copy the connetions string for the CosmosDB account and paste it into a new application setting in the function app called 'AzureWebJobsDocumentDBConnectionString'
 

@@ -71,7 +71,7 @@ namespace api
 
 			Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ServerlessTodo", "TodoItems");
 
-			var itemQuery = client.CreateDocumentQuery<TodoItem>(collectionUri).Where(i => i.ItemOwner == currentUser.UniqueName);
+			var itemQuery = client.CreateDocumentQuery<TodoItem>(collectionUri, new FeedOptions { PartitionKey = new PartitionKey(currentUser.UniqueName) });
 
 			var ret = new { UserName = currentUser.DisplayName, Items = itemQuery.ToArray() };
 
@@ -92,23 +92,14 @@ namespace api
 
 			try
 			{
-				var item = await client.ReadDocumentAsync<TodoItem>(documentUri);
-				
 				// Verify the user owns the document and can delete it
-				if (item.Document.ItemOwner == currentUser.UniqueName)
-				{
-					await client.DeleteDocumentAsync(documentUri);
-				}
-				else
-				{
-					log.Warning("Document with ID: " + id + " does not belong to user " + currentUser.UniqueName);
-				}
+    			await client.DeleteDocumentAsync(documentUri, new RequestOptions() { PartitionKey = new PartitionKey(currentUser.UniqueName) });
 			}
 			catch (DocumentClientException ex)
 			{
 				if (ex.StatusCode == HttpStatusCode.NotFound)
 				{
-					// Document does not exist or was already deleted
+					// Document does not exist, is not owned by the current user, or was already deleted
 					log.Warning("Document with ID: " + id + " not found.");
 				}
 				else
