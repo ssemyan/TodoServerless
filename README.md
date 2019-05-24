@@ -1,7 +1,7 @@
 ﻿
 # Azure Functions Todo List Sample
 
-Note: this application is referenced in the blog post [A Serverless ToDo List](https://blogs.msdn.microsoft.com/cloud_solution_architect/2018/09/03/serverless-todo-list/)
+Note: this application is referenced in the blog post [A Serverless ToDo List](https://ssemyan.github.io/serverless/2018/09/03/serverless-todo-list.html)
 
 This sample demonstrates a single page application (SPA) hosted on Azure Storage, with an api backend built using Azure Functions. The site uses proxies to route the site html and js content of the SPA back to the storage account, CosmosDB to store data, and Azure Active Directory for authentication.
 
